@@ -85,7 +85,7 @@ Jupiter notebook with sample queries to test connection, creation of tables and 
 ## top 10 users with most songplays:
 
 select top 10 concat(u.first_name,' ',u.last_name) as user_name,  
-count(distinct  s.songplay_id) as distint_songplays  
+count(distinct  s.songplay_id) as distinct_songplays  
 from songplays s  
 left join users u on s.user_id = u.user_id  
 group by 1  
@@ -94,7 +94,7 @@ order by 2 desc
 ## top 10 most played songs:
 
 select top 10 so.title as song_name,  
-count(distinct  s.songplay_id) as distint_songplays  
+count(distinct  s.songplay_id) as distinct_songplays  
 from songplays so  
 left join users u on s.song_id = so.song_id  
 group by 1  
@@ -103,7 +103,7 @@ order by 2 desc
 ## top 10 most played artists:
 
 select top 10 a.name as artist_name,  
-count(distinct  s.songplay_id) as distint_songplays  
+count(distinct  s.songplay_id) as distinct_songplays  
 from songplays so  
 left join artists a on s.artist_id = a.artist_id  
 group by 1  
